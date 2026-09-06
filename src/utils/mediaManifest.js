@@ -1,6 +1,6 @@
-const imageModules = import.meta.glob('/public/images/*.{jpg,jpeg,png,webp}', { eager: true, as: 'url' });
-const videoModules = import.meta.glob('/public/videos/*.{mp4,webm,ogg}', { eager: true, as: 'url' });
-const musicModules = import.meta.glob('/public/music/*.{mp3,wav,ogg}', { eager: true, as: 'url' });
+const imageModules = import.meta.glob('/src/media/images/*.{jpg,jpeg,png,webp}', { eager: true, as: 'url' });
+const videoModules = import.meta.glob('/src/media/videos/*.{mp4,webm,ogg}', { eager: true, as: 'url' });
+const musicModules = import.meta.glob('/src/media/music/*.{mp3,wav,ogg}', { eager: true, as: 'url' });
 
 function extractNumber(filename) {
   const match = filename.match(/(\d+)/);
