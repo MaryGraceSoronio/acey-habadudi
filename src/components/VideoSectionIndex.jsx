@@ -20,7 +20,7 @@ export default function VideoSection() {
         <p className="video-section-label">And a few moving moments...</p>
         <h2 className="video-section-title">Our Little Films</h2>
       </div>
-      <div className="video-grid">
+      <div className="video-gallery">
         {videos.map((video, i) => (
           <VideoCard key={video.filename} video={video} index={i} />
         ))}

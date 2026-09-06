@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { images } from './utils/mediaManifest';
 import Cover from './components/Cover';
 import StorySection from './components/StorySection';
@@ -14,10 +14,14 @@ import './App.css';
 function App() {
   const [confettiActive, setConfettiActive] = useState(false);
   const [finalRevealed, setFinalRevealed] = useState(false);
+  const finalRef = useRef(null);
 
   const handleGiftOpen = () => {
-    setTimeout(() => setConfettiActive(true), 300);
-    setTimeout(() => setFinalRevealed(true), 2200);
+    setConfettiActive(true);
+    setFinalRevealed(true);
+    setTimeout(() => {
+      finalRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
   };
 
   useEffect(() => {
@@ -44,7 +48,9 @@ function App() {
       <section className="gift-wrapper">
         <GiftBox onOpen={handleGiftOpen} />
         <ConfettiMemories active={confettiActive} />
-        <FinalMessage visible={finalRevealed} />
+        <div ref={finalRef}>
+          <FinalMessage visible={finalRevealed} />
+        </div>
       </section>
     </div>
   );
