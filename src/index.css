@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap');
+
+:root {
+  --yellow-primary: #f5c842;
+  --yellow-light: #ffeaa7;
+  --yellow-glow: #ffd700;
+  --yellow-dark: #e8b931;
+  --yellow-bg: #fffde7;
+
+  --purple-accent: #9b59b6;
+  --purple-light: #c39bd3;
+  --purple-glow: #bb8fce;
+  --purple-subtle: rgba(155, 89, 182, 0.15);
+
+  --bg: #fffef5;
+  --bg-warm: #fef9e7;
+  --text: #5d4e37;
+  --text-light: #8b7355;
+  --text-heading: #4a3728;
+
+  --shadow-soft: 0 4px 20px rgba(245, 200, 66, 0.15);
+  --shadow-card: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(245,200,66,0.1);
+  --shadow-gift: 0 12px 40px rgba(155, 89, 182, 0.2);
+
+  --font-body: 'Quicksand', 'Segoe UI', system-ui, sans-serif;
+  --font-handwritten: 'Caveat', cursive;
+
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  overflow-x: clip;
+  background: var(--bg);
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  border: none;
+  min-height: 100svh;
+  display: block;
+  text-align: left;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
