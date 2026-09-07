@@ -1,15 +1,24 @@
 {
   "name": "acey-habadudi",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "main": "electron/main.cjs",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "electron:dev": "vite build && electron .",
+    "electron:build": "vite build && electron-builder --win",
+    "android:sync": "vite build && npx cap sync android",
+    "android:open": "npx cap open android",
+    "clean:dist": "node -e \"const fs=require('fs'),p=require('path');['images','videos','music'].forEach(d=>{const dir=p.join('dist',d);if(fs.existsSync(dir)){fs.rmSync(dir,{recursive:true});console.log('Removed',dir)}})\""
   },
   "dependencies": {
+    "@capacitor/android": "^7.2.0",
+    "@capacitor/cli": "^7.2.0",
+    "@capacitor/core": "^7.2.0",
     "canvas-confetti": "^1.9.4",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
@@ -18,7 +27,43 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.4",
     "@vitejs/plugin-react": "^6.1.0",
+    "electron": "^44.2.0",
+    "electron-builder": "^26.15.3",
     "oxlint": "^1.79.0",
+    "sharp": "^0.35.4",
     "vite": "^8.2.2"
+  },
+  "build": {
+    "appId": "com.acey.foryou",
+    "productName": "For You",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "electron/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    }
   }
 }

@@ -9,8 +9,11 @@ function extractNumber(filename) {
 
 function buildMediaList(modules) {
   return Object.entries(modules)
-    .map(([path, url]) => {
+    .map(([path, urlOrModule]) => {
       const filename = path.split('/').pop();
+      const url = (urlOrModule && typeof urlOrModule === 'object' && urlOrModule.default)
+        ? urlOrModule.default
+        : urlOrModule;
       return { filename, path, url, number: extractNumber(filename) };
     })
     .sort((a, b) => a.number - b.number);

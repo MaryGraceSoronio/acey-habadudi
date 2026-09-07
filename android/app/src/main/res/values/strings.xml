@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">For You</string>
+    <string name="title_activity_main">For You</string>
+    <string name="package_name">com.acey.foryou</string>
+    <string name="custom_url_scheme">com.acey.foryou</string>
+</resources>

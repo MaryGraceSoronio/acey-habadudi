@@ -14,7 +14,7 @@ export default function Cover() {
 
   const parallaxY = progress * -80;
   const parallaxScale = 1 + progress * 0.05;
-  const fadeOut = Math.max(0, 1 - progress * 1.8);
+  const fadeOut = progress < 0.05 ? 1 : Math.max(0, 1 - progress * 1.8);
 
   return (
     <section ref={mergedRef} className="story-section cover-section" id="cover">
