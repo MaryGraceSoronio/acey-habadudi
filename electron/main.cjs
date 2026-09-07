@@ -18,6 +18,7 @@ function createWindow() {
     autoHideMenuBar: true,
     titleBarStyle: 'hiddenInset',
     backgroundColor: '#fffef5',
+    fullscreen: true,
   });
 
   if (isDev) {
