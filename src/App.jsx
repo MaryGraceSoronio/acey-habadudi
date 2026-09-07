@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { images } from './utils/mediaManifest';
+import captions from './utils/captions';
 import Cover from './components/Cover';
 import StorySection from './components/StorySection';
 import VideoSection from './components/VideoSectionIndex';
@@ -39,7 +40,7 @@ function App() {
 
       <div className="story-grid">
         {images.map((image, index) => (
-          <StorySection key={image.filename} image={image} index={index} />
+          <StorySection key={image.filename} image={image} index={index} text={captions[index]} />
         ))}
       </div>
 
